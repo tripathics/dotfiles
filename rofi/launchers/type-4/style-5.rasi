@@ -20,8 +20,18 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
+* {
+    background:     #DEE2E6DD;
+    background-alt: #F1F3F5FF;
+    foreground:     #212529FF;
+    selected:       #DEE206FF;
+    active:         #98C379FF;
+    urgent:         #E06C75FF;
+}
+
+* {
+    font: "BlexMono Nerd Font 14";
+}
 
 * {
     border-colour:               var(selected);
@@ -65,7 +75,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               8px;
     border-color:                @border-colour;
     cursor:                      "default";
     background-color:            @background-colour;
