@@ -1,0 +1,105 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "hyprland/submap",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+    "custom/music"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "tray",
+    "clock",
+    "custom/lock"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon} {name}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "hyprland/window": {
+    "separate-outputs": true
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+  "custom/music": {
+    "format": "  {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 50
+  },
+  "clock": {
+    "timezone": "Asia/Kolkata",
+    "tooltip-format": "<big>{:%a %b-%d %H:%M:%S}</big>\n<tt><big>{calendar}</big></tt>",
+    "format": "{:%H:%M}",
+    "format-alt": "{:%H:%M:%S}",
+    "interval": 1
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󱐋",
+    "format-plugged": "{capacity}% ",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        " "
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "wlogout &",
+    "format": "⏻"
+  },
+  "custom/lock": {
+    "tooltip": false,
+    "on-click": "hyprlock &",
+    "format": ""
+  }
+  // "custom/docker": {
+  //   "format": "{}",
+  //   "return-type": "json",
+  //   "interval": 10,
+  //   "exec": "$(pwd)/scripts/docker-stats/docker-stats",
+  //   "tooltip": true
+  // },
+}

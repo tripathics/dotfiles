@@ -1,0 +1,14 @@
+# font-family = Iosevka
+font-family = BlexMono Nerd Font Mono
+font-size = 14
+
+window-padding-x = 0
+window-padding-y = 0
+
+background-opacity = 0.95
+
+# cursor
+cursor-style = underline
+# theme = Atom
+theme = catppuccin-mocha
+
