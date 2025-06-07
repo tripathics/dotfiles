@@ -3,6 +3,7 @@
   "layer": "top",
   "position": "top",
   "modules-left": [
+    "custom/padding",
     "hyprland/submap",
     "hyprland/window"
   ],
@@ -15,8 +16,12 @@
     "backlight",
     "battery",
     "tray",
-    "clock"
+    "clock",
+    "custom/padding"
   ],
+  "custom/padding": {
+    "format": " "
+  },
   "hyprland/submap": {
     "tooltip": false
   },
@@ -45,9 +50,9 @@
   },
   "clock": {
     "timezone": "Asia/Kolkata",
-    "tooltip-format": "<big>{:%a %b-%d %H:%M:%S}</big>\n<tt><big>{calendar}</big></tt>",
+    "tooltip-format": "<big>{:%a, %b-%d %H:%M:%S}</big>\n<tt><big>{calendar}</big></tt>",
     "format": "{:%H:%M}",
-    "format-alt": "{:%H:%M:%S}",
+    "format-alt": "{:%a, %b-%d %H:%M:%S}",
     "interval": 1
   },
   "backlight": {
@@ -92,16 +97,4 @@
     },
     "on-click": "pavucontrol"
   }
-  // "custom/lock": {
-  //   "tooltip": false,
-  //   "on-click": "hyprlock &",
-  //   "format": ""
-  // }
-  // "custom/docker": {
-  //   "format": "{}",
-  //   "return-type": "json",
-  //   "interval": 10,
-  //   "exec": "$(pwd)/scripts/docker-stats/docker-stats",
-  //   "tooltip": true
-  // },
 }
