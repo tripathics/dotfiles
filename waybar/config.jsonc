@@ -1,3 +1,4 @@
+// base: https://github.com/victordantasdev/waybar
 {
   "layer": "top",
   "position": "top",
@@ -14,9 +15,11 @@
     "backlight",
     "battery",
     "tray",
-    "clock",
-    "custom/lock"
+    "clock"
   ],
+  "hyprland/submap": {
+    "tooltip": false
+  },
   "hyprland/workspaces": {
     "format": "{icon} {name}",
     "format-icons": {
@@ -62,6 +65,10 @@
     ]
   },
   "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% 󱐋",
     "format-plugged": "{capacity}% ",
@@ -84,17 +91,12 @@
       ]
     },
     "on-click": "pavucontrol"
-  },
-  "custom/power": {
-    "tooltip": false,
-    "on-click": "wlogout &",
-    "format": "⏻"
-  },
-  "custom/lock": {
-    "tooltip": false,
-    "on-click": "hyprlock &",
-    "format": ""
   }
+  // "custom/lock": {
+  //   "tooltip": false,
+  //   "on-click": "hyprlock &",
+  //   "format": ""
+  // }
   // "custom/docker": {
   //   "format": "{}",
   //   "return-type": "json",

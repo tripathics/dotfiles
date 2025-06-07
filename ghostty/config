@@ -5,10 +5,9 @@ font-size = 14
 window-padding-x = 0
 window-padding-y = 0
 
-background-opacity = 0.95
+background-opacity = 0.85
 
 # cursor
 cursor-style = underline
-# theme = Atom
-theme = catppuccin-mocha
+theme = Oxocarbon
 
