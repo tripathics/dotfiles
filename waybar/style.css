@@ -24,6 +24,7 @@ button {
 #workspaces {
   border-radius: 5px;
   background: #101010;
+  margin: 4px;
 }
 
 #workspaces button {
