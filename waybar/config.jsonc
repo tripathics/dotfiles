@@ -13,6 +13,7 @@
   ],
   "modules-right": [
     "pulseaudio",
+    "custom/nightlight",
     "backlight",
     "battery",
     "tray",
@@ -29,11 +30,14 @@
     "format": "{icon} {name}",
     "format-icons": {
       "active": "",
-      "default": ""
+      "default": ""
     }
   },
   "hyprland/window": {
-    "separate-outputs": true
+    "max-length": 60,
+    "separate-outputs": true,
+    "icon": true,
+    "icon-size": 18
   },
   "tray": {
     "icon-size": 16,
@@ -47,6 +51,12 @@
     "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
     "on-click": "playerctl play-pause",
     "max-length": 50
+  },
+  "custom/nightlight": {
+    "format": "{}",
+    "interval": 1,
+    "exec": "~/.config/waybar/scripts/hyprsunsetctl.sh -s",
+    "on-click": "~/.config/waybar/scripts/hyprsunsetctl.sh -t",
   },
   "clock": {
     "timezone": "Asia/Kolkata",

@@ -1,5 +1,4 @@
-# font-family = Iosevka
-font-family = BlexMono Nerd Font Mono
+font-family = BlexMono Nerd Font
 font-size = 14
 
 window-padding-x = 0
@@ -8,6 +7,6 @@ window-padding-y = 0
 background-opacity = 0.85
 
 # cursor
-cursor-style = underline
+cursor-style = block
 theme = Oxocarbon
 
