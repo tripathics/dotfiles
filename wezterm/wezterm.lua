@@ -2,13 +2,10 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.enable_wayland = false
-
 config.font = wezterm.font("BlexMono Nerd Font Mono")
 config.font_size = 14
-config.line_height = 1.05
 
-config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 
 config.window_padding = {

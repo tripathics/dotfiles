@@ -8,22 +8,23 @@ toggle_hyprsunset() {
     if [[ -f "$PID_FILE" ]]; then
         pkill -F "$PID_FILE"
         rm "$PID_FILE"
-        notify-send -u normal -t 2000 "Hyprsunset" "Disabled"
-        echo $DISABLED_ICON
     else
         hyprsunset -t 5250 > /dev/null 2>&1 &
         echo $! > "$PID_FILE"
-        notify-send -u normal -t 2000 "Hyprsunset" "Enabled"
-        echo $ENABLED_ICON
     fi
 }
 
 print_status() {
     if [[ -f "$PID_FILE" ]]; then 
-        echo $ENABLED_ICON
+        CLASS="enabled"
+        TEXT="$ENABLED_ICON ON"
+        TOOLTIP="hyprsunset on"
     else
-        echo $DISABLED_ICON    
+        CLASS="disabled"
+        TEXT="$DISABLED_ICON OF"
+        TOOLTIP="hyprsunset off"
     fi
+    printf '{"text": "%s", "class": "%s", "tooltip": "%s"}\n' "$TEXT" "$CLASS" "$TOOLTIP"
 }
 
 NO_ARGS=0

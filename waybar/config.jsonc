@@ -12,9 +12,10 @@
     "custom/music"
   ],
   "modules-right": [
+    "keyboard-state",
     "pulseaudio",
-    "custom/nightlight",
     "backlight",
+    "custom/nightlight",
     "battery",
     "tray",
     "clock",
@@ -24,6 +25,7 @@
     "format": " "
   },
   "hyprland/submap": {
+    "format": " {}",
     "tooltip": false
   },
   "hyprland/workspaces": {
@@ -31,6 +33,14 @@
     "format-icons": {
       "active": "",
       "default": ""
+    }
+  },
+  "keyboard-state": {
+    "capslock": true,
+    "format": "{icon}",
+    "format-icons": {
+      "locked": "󰪛",
+      "unlocked": ""
     }
   },
   "hyprland/window": {
@@ -53,15 +63,17 @@
     "max-length": 50
   },
   "custom/nightlight": {
-    "format": "{}",
-    "interval": 1,
+    // "format": "{}",
+    "interval": "once",
     "exec": "~/.config/waybar/scripts/hyprsunsetctl.sh -s",
-    "on-click": "~/.config/waybar/scripts/hyprsunsetctl.sh -t",
+    "on-click": "~/.config/waybar/scripts/hyprsunsetctl.sh -t; pkill -SIGRTMIN+8 waybar",
+    "signal": 8,
+    "return-type": "json"
   },
   "clock": {
     "timezone": "Asia/Kolkata",
     "tooltip-format": "<big>{:%a, %b-%d %H:%M:%S}</big>\n<tt><big>{calendar}</big></tt>",
-    "format": "{:%H:%M}",
+    "format": "{:%a %d - %H:%M}",
     "format-alt": "{:%a, %b-%d %H:%M:%S}",
     "interval": 1
   },
