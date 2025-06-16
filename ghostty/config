@@ -4,9 +4,10 @@ font-size = 14
 window-padding-x = 0
 window-padding-y = 0
 
-background-opacity = 0.85
+theme = carbonfox
+background = 111111
+background-opacity = 0.9
 
 # cursor
 cursor-style = block
-theme = Oxocarbon
 
