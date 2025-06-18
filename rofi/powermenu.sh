@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 
 ## Author  : Aditya Shakya (adi1090x)
-## Github  : @adi1090x
-#
-## Applets : Power Menu
+## Modified by: tripathics
 
 # Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
+theme="$HOME/.config/rofi/applets/type-5/style-1.rasi"
 
 # Theme Elements
 prompt="`uname -n`"

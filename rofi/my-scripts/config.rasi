@@ -1,7 +1,0 @@
-/* Global settings */
-configuration {
-    dpi: 114;
-
-}
-
-// vim: ai tw=80 sw=4 ts=4 expandtab
