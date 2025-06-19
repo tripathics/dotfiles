@@ -1,52 +1,36 @@
 #!/usr/bin/env bash
 
 ## Author  : Aditya Shakya (adi1090x)
-## Github  : @adi1090x
-#
-## Applets : Power Menu
+## Modified by: tripathics
 
 # Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
+# source "$HOME"/.config/rofi/applets/shared/theme.bash
+
+# type="$HOME/.config/rofi/applets/type-5"
+# style='style-1.rasi'
+theme="$HOME/.config/rofi/my-powermenu/theme.rasi"
+
+# theme="./theme.rasi"
 
 # Theme Elements
-prompt="`hostname`"
+prompt="`uname -n`"
 mesg="Uptime : `uptime -p | sed -e 's/up //g'`"
-
-if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
-	list_col='1'
-	list_row='6'
-elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
-	list_col='6'
-	list_row='1'
-fi
+list_col='1'
+list_row='6'
 
 # Options
-layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
-if [[ "$layout" == 'NO' ]]; then
-	option_1=" Lock"
-	option_2=" Logout"
-	option_3=" Suspend"
-	option_4=" Hibernate"
-	option_5=" Reboot"
-	option_6=" Shutdown"
-	yes=' Yes'
-	no=' No'
-else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-	option_6=""
-	yes=''
-	no=''
-fi
+option_1=" Lock"
+option_2=" Logout"
+option_3=" Suspend"
+option_4=" Hibernate"
+option_5=" Reboot"
+option_6=" Shutdown"
+yes=' Yes'
+no=' No'
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
-		-theme-str 'textbox-prompt-colon {str: "";}' \
 		-dmenu \
 		-p "$prompt" \
 		-mesg "$mesg" \
@@ -81,7 +65,7 @@ confirm_exit() {
 confirm_run () {	
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
-        ${1} && ${2} && ${3}
+	bash -c "$*"
     else
         exit
     fi	
@@ -90,13 +74,13 @@ confirm_run () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		betterlockscreen -l
+		hyprlock
 	elif [[ "$1" == '--opt2' ]]; then
-		confirm_run 'kill -9 -1'
+		confirm_run 'hyprctl dispatch exit'
 	elif [[ "$1" == '--opt3' ]]; then
-		confirm_run 'mpc -q pause' 'amixer set Master mute' 'systemctl suspend'
+		confirm_run 'playerctl pause; hyprlock & sleep 1 && systemctl suspend'
 	elif [[ "$1" == '--opt4' ]]; then
-		confirm_run 'systemctl hibernate'
+		confirm_run 'playerctl pause; hyprlock & sleep 1 && systemctl hibernate'
 	elif [[ "$1" == '--opt5' ]]; then
 		confirm_run 'systemctl reboot'
 	elif [[ "$1" == '--opt6' ]]; then
@@ -127,3 +111,4 @@ case ${chosen} in
         ;;
 esac
 
+# vim: ts=4 sw=4 expandtab

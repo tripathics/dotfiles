@@ -18,6 +18,9 @@
     accent:	    #623AC6;
     warning:	    #8DDA7E;
 
+    border-primary: #C2FCB622;
+    border-secondary: #16191C22;
+
     white:	    #ffffff;
 
     // Fonts
@@ -79,7 +82,7 @@ element normal.active, element alternate.active {
 element selected.normal {
     background-color: var(bg-quaternary);
     text-color: var(white);
-    border: 0 0 0 2px;
+    border: 0 0 0 3px;
     border-color: var(accent);
     // text-color:       var(selected-normal-foreground);
 }
@@ -111,10 +114,15 @@ window {
     padding:          0;
     background-color: var(bg);
     border-radius:    8px;
+    border:	      2px;
+    border-color:     var(border-secondary);
 }
 mainbox {
     padding: 0;
     border:  0;
+    border-radius:    8px;
+    border:	      2px;
+    border-color:     var(border-primary);
 }
 message {
     padding:      0;

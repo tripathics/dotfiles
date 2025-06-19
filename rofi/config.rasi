@@ -1,6 +1,7 @@
 configuration {
     modi:		    "drun";
     modes:		    "window,drun,run,filebrowser";
+    cycle:		    false;
     fixed-num-lines:	    true;
     show-icons:		    true;
     icon-theme:		    "hicolor";
