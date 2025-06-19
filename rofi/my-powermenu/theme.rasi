@@ -147,20 +147,20 @@ element-text {
 
 element normal.normal,
 element alternate.normal {
-    background-color:            var(background);
+    background-color:            var(bg);
     text-color:                  var(foreground);
 }
 element normal.urgent,
 element alternate.urgent,
 element selected.active {
     background-color:            var(urgent);
-    text-color:                  var(background);
+    text-color:                  var(bg);
 }
 element normal.active,
 element alternate.active,
 element selected.urgent {
     background-color:            var(active);
-    text-color:                  var(background);
+    text-color:                  var(bg);
 }
 element selected.normal {
     background-color:            var(selected);
